@@ -20,7 +20,9 @@
 
 .actor_text {
   padding: 5px;
+  width: 190px;
 }
 p {
   margin: 0;
+  text-overflow: hidden;
 }
