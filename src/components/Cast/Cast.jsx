@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { PuffLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
+import css from './Cast.module.css';
 
 import { getCast } from 'components/services/api';
 
@@ -39,22 +40,24 @@ const Cast = () => {
     <>
       {isLoading && <PuffLoader color="#36d7b7" size={200} />}
       {cast?.length > 0 && (
-        <ul>
+        <ul className={css.actors}>
           {cast.map(({ original_name, character, profile_path, id }) => {
             return (
-              <li key={id}>
-                <div>
+              <li key={id} className={css.actor_card}>
+                <div className={css.actor_photo}>
                   <img
                     src={
                       profile_path
                         ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                        : 'https://www.freeiconspng.com/uploads/no-image-icon-33.png'
+                        : './assets/images/no-image-icon-23505.png'
                     }
                     alt={original_name}
                   />
                 </div>
-                <p>{character}</p>
-                <p>{original_name}</p>
+                <div className={css.actor_text}>
+                  <p>{character}</p>
+                  <p>{original_name}</p>
+                </div>
               </li>
             );
           })}
