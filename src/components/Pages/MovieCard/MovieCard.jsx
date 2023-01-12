@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 import { PuffLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
+import css from './MovieCard.module.css';
 
 import { getMoviesById } from 'components/services/api';
 
@@ -51,47 +53,66 @@ const MovieCard = () => {
 
   return (
     <>
-      <h1>MOVIE DETAILS</h1>
-      <Link to={backLink}>Go back</Link>
+      <h1
+        style={{
+          margin: '0',
+          textAlign: 'center',
+          paddingTop: '10px',
+          paddingBottom: '10px',
+        }}
+      >
+        MOVIE DETAILS
+      </h1>
+      <Link to={backLink} className={css.backLink}>
+        Go back
+      </Link>
       {isLoading && <PuffLoader color="#36d7b7" size={200} />}
-      <div>
-        <img src={poster_path} alt={original_title} className="" />
-        <div className="">
-          <h3 className="">{original_title}</h3>
-          <p className="">
+      <div className={css.filmWrap}>
+        <img
+          src={'https://image.tmdb.org/t/p/w500' + poster_path}
+          alt={original_title}
+          className={css.filmImg}
+        />
+        <div className={css.filmInfo}>
+          <h3 className={css.title}>{original_title}</h3>
+          <p className={css.text}>
             <b>Tagline: </b>
             {tagline}
           </p>
-          <p className="">
+          <p className={css.text}>
             <b>Budget: </b>
             {budget}$
           </p>
-          <p className="">
+          <p className={css.text}>
             <b>Genres: </b>
-            {/* {genres.map(genre => genre.name).join(', ')} */}
+            {Array.isArray(genres) &&
+              genres.map(genre => genre.name).join(', ')}
           </p>
-          <p className="">
+          <p className={css.text}>
             <b>Production companies: </b>
-            {/* {production_companies.map(company => company.name).join(', ')} */}
+            {Array.isArray(production_companies) &&
+              production_companies.map(company => company.name).join(', ')}
           </p>
-          <p className="">
+          <p className={css.text}>
             <b>Release date : </b>
             {release_date}
           </p>
-          <p className="">
+          <p className={css.text}>
             <b>Description: </b>
             {overview}
           </p>
-          <Link to="cast" state={{ from: backLink }} className="">
+          <Link to="cast" state={{ from: backLink }} className={css.link}>
             Cast
           </Link>
-          <Link to="reviews" state={{ from: backLink }} className="">
+          <Link to="reviews" state={{ from: backLink }} className={css.link}>
             Reviews
           </Link>
         </div>
       </div>
       <div>
-        <Outlet />
+        <Suspense fallback={<PuffLoader color="#36d7b7" size={200} />}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );

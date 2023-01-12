@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export const FilmList = ({ movies }) => {
+const FilmList = ({ movies }) => {
   const location = useLocation();
   return (
     movies?.length > 0 && (
@@ -19,3 +19,4 @@ export const FilmList = ({ movies }) => {
     )
   );
 };
+export default FilmList;

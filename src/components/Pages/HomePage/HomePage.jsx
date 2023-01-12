@@ -3,10 +3,10 @@ import { React, useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { PuffLoader } from 'react-spinners';
 
-import { FilmList } from 'components/FilmList/FilmList';
+import FilmList from 'components/FilmList/FilmList';
 import { getInitialMovies } from 'components/services/api';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -35,10 +35,20 @@ export const HomePage = () => {
 
   return (
     <>
-      <h1>HOME PAGE</h1>
+      <h1
+        style={{
+          margin: '0',
+          textAlign: 'center',
+          paddingTop: '10px',
+        }}
+      >
+        HOME PAGE
+      </h1>
       <FilmList movies={movies} />
 
       {isLoading && <PuffLoader color="#36d7b7" size={200} />}
     </>
   );
 };
+
+export default HomePage;

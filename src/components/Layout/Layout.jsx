@@ -1,28 +1,40 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { PuffLoader } from 'react-spinners';
+import css from './Layout.module.css';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <>
-      <header>
+      <header className={css.header}>
         <div>
           <nav>
-            <ul>
+            <ul className={css.link_list}>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" className={css.navLink}>
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/movies">Movies</NavLink>
+                <NavLink to="/movies" className={css.navLink}>
+                  Movies
+                </NavLink>
               </li>
             </ul>
           </nav>
         </div>
       </header>
-      <main>
-        <Outlet />
+      <main className={css.main}>
+        <Suspense fallback={<PuffLoader color="#36d7b7" size={200} />}>
+          <Outlet />
+        </Suspense>
       </main>
       <ToastContainer />
     </>
   );
 };
+
+export default Layout;

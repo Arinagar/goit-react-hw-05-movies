@@ -44,7 +44,14 @@ const Cast = () => {
             return (
               <li key={id}>
                 <div>
-                  <img src={profile_path} alt={original_name} />
+                  <img
+                    src={
+                      profile_path
+                        ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                        : 'https://www.freeiconspng.com/uploads/no-image-icon-33.png'
+                    }
+                    alt={original_name}
+                  />
                 </div>
                 <p>{character}</p>
                 <p>{original_name}</p>

@@ -5,10 +5,10 @@ import { PuffLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 
 import { getQueryMovies } from 'components/services/api';
-import { FilmList } from 'components/FilmList/FilmList';
+import FilmList from 'components/FilmList/FilmList';
 import SearchForm from 'components/SearchForm/SearchForm';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -42,11 +42,21 @@ export const MoviesPage = () => {
   return (
     <>
       <header>
-        <h1>SEARCH MOVIES PAGE</h1>
+        <h1
+          style={{
+            margin: '0',
+            textAlign: 'center',
+            paddingTop: '10px',
+            paddingBottom: '10px',
+          }}
+        >
+          SEARCH MOVIES PAGE
+        </h1>
         <SearchForm />
       </header>
       {isLoading && <PuffLoader color="#36d7b7" size={200} />}
-      {movies.length > 0 && <FilmList movies={movies} />}
+      {movies.length > 0 && !isLoading && <FilmList movies={movies} />}
     </>
   );
 };
+export default MoviesPage;

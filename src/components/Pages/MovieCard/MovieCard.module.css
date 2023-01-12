@@ -1,0 +1,41 @@
+.backLink {
+  color: black;
+  padding: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #82e9de;
+}
+.filmWrap {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+.filmImg {
+  min-width: 30%;
+  object-fit: contain;
+}
+.filmInfo {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+}
+.title {
+  font-size: 45px;
+  margin: 0;
+}
+.text {
+  font-size: 20px;
+  margin: 0;
+}
+.link {
+  color: black;
+  font-size: 30px;
+  list-style: none;
+  text-decoration: underline;
+  font-size: 25px;
+  font-weight: 600;
+}
