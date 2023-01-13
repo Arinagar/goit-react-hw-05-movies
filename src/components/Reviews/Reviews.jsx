@@ -5,6 +5,7 @@ import { PuffLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 
 import { getReviews } from 'components/services/api';
+import NotFound from 'components/NotFound/NotFound';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -38,7 +39,7 @@ const Reviews = () => {
   return (
     <>
       {isLoading && <PuffLoader color="#36d7b7" size={200} />}
-      {reviews?.length > 0 && (
+      {reviews?.length > 0 ? (
         <ul>
           {reviews.map(({ author, content, created_at, id }) => {
             return (
@@ -50,6 +51,8 @@ const Reviews = () => {
             );
           })}
         </ul>
+      ) : (
+        <NotFound />
       )}
     </>
   );
