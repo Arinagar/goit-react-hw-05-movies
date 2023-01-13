@@ -14,12 +14,22 @@ const Layout = () => {
           <nav>
             <ul className={css.link_list}>
               <li>
-                <NavLink to="/" className={css.navLink}>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? `${css.navLink} ${css.active}` : css.navLink
+                  }
+                >
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/movies" className={css.navLink}>
+                <NavLink
+                  to="/movies"
+                  className={({ isActive }) =>
+                    isActive ? `${css.navLink} ${css.active}` : css.navLink
+                  }
+                >
                   Movies
                 </NavLink>
               </li>

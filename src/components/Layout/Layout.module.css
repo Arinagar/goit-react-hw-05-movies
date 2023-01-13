@@ -25,3 +25,8 @@
   font-size: 30px;
   color: black;
 }
+
+.navLink.active {
+  background-color: green;
+  color: white;
+}
