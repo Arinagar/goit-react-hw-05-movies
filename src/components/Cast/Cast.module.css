@@ -15,11 +15,15 @@
 
 .actor_photo {
   width: 200px;
-  height: auto;
+}
+.photo {
+  height: 300px;
+  object-fit: cover;
 }
 
 .actor_text {
   padding: 5px;
+  padding-top: 10px;
   width: 190px;
 }
 p {

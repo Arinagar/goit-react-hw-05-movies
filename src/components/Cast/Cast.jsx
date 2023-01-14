@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { PuffLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
+import dumbImage from '../assets/images/no-image-icon-23505.png';
 import css from './Cast.module.css';
 
 import { getCast } from 'components/services/api';
@@ -49,9 +50,10 @@ const Cast = () => {
                     src={
                       profile_path
                         ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                        : './assets/images/no-image-icon-23505.png'
+                        : dumbImage
                     }
                     alt={original_name}
+                    className={css.photo}
                   />
                 </div>
                 <div className={css.actor_text}>

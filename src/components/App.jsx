@@ -4,10 +4,10 @@ import { Route, Routes } from 'react-router-dom';
 import css from './Global/Global.module.css';
 
 const Layout = lazy(() => import('./Layout/Layout'));
-const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
-const MoviesPage = lazy(() => import('./Pages/MoviesPage/MoviesPage'));
+const HomePage = lazy(() => import('../Pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('../Pages/MoviesPage/MoviesPage'));
 const NotFound = lazy(() => import('./NotFound/NotFound'));
-const MovieCard = lazy(() => import('./Pages/MovieCard/MovieCard'));
+const MovieCard = lazy(() => import('../Pages/MovieCard/MovieCard'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
 
@@ -22,8 +22,8 @@ export const App = () => {
             <Route path="movies/:movieId" element={<MovieCard />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
-              <Route path="*" element={<NotFound />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </div>
