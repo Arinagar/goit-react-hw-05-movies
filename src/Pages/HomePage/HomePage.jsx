@@ -7,7 +7,7 @@ import FilmList from 'components/FilmList/FilmList';
 import { getInitialMovies } from 'components/services/api';
 
 const HomePage = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 

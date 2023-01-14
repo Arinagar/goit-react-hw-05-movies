@@ -9,7 +9,7 @@ import FilmList from 'components/FilmList/FilmList';
 import SearchForm from 'components/SearchForm/SearchForm';
 
 const MoviesPage = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [searchParams] = useSearchParams();
